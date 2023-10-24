@@ -4,9 +4,6 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objs as go
 from PIL import Image
-import requests
-import numpy as np
-import cv2
 
 # Thay đổi tên tệp Excel và trang tính tương ứng
 url = 'https://github.com/tienguyene/GPM1/raw/main/data-Fintech2023.xlsx'
