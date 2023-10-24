@@ -2,7 +2,6 @@ import pandas as pd
 #Import the libraris
 import streamlit as st
 import pandas as pd
-pip install plotly
 import plotly.graph_objs as go
 from PIL import Image
 
