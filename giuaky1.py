@@ -47,11 +47,11 @@ st.header("**Your Technical Analysis Web Application***")
 st.write("""
 **Visually** show technical indicator on any stock on the market
 """)
-image_url = 'https://github.com/tienguyene/GPM1/main/image.jpg'
-response = requests.get(image_url)
-image_bytes = np.asarray(bytearray(response.content), dtype=np.uint8)
-image = cv2.imdecode(image_bytes, cv2.IMREAD_COLOR)
-st.image(image, use_column_width=True)
+image_path = 'hinhanh.jpg'
+# Sử dụng thư viện Pillow (PIL) để mở tệp ảnh
+image = Image.open(image_path)
+# Hiển thị ảnh
+st.image(image, caption='Tệp ảnh .jpg', use_column_width=True)
 
 #Create a sidebar header
 st.sidebar.header('Enter the stock code and type of indicator you want to see')
