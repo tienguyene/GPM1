@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from PIL import Image
 
 # Thay đổi tên tệp Excel và trang tính tương ứng
-url = 'c:/Users/PC/Downloads/data-Fintech2023.xlsx'
+url = 'c:/Users/PC/Downloads/GPM1/data-Fintech2023.xlsx'
 sheet = 'Price'
 
 @st.cache_data
@@ -44,7 +44,7 @@ st.header("**Your Technical Analysis Web Application***")
 st.write("""
 **Visually** show technical indicator on any stock on the market
 """)
-image = Image.open("c:/Users/ducmi/Downloads/Welcome to our technical analysis tool.jpg")
+image = Image.open("c:/Users/PC/Downloads/GPM1/hinhanh.jpg")
 st.image(image, use_column_width=True)
 
 #Create a sidebar header
