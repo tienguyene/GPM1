@@ -5,7 +5,8 @@ import pandas as pd
 import plotly.graph_objs as go
 from PIL import Image
 import requests
-from io import BytesIO
+import numpy as np
+import cv2
 
 # Thay đổi tên tệp Excel và trang tính tương ứng
 url = 'https://github.com/tienguyene/GPM1/raw/main/data-Fintech2023.xlsx'
@@ -48,8 +49,9 @@ st.write("""
 """)
 image_url = 'https://github.com/tienguyene/GPM1/raw/main/image.jpg'
 response = requests.get(image_url)
-image = Image.open(BytesIO(response.content))
-st.image(image, caption='Tệp ảnh từ GitHub', use_column_width=True)
+image_bytes = np.asarray(bytearray(response.content), dtype=np.uint8)
+image = cv2.imdecode(image_bytes, cv2.IMREAD_COLOR)
+st.image(image, use_column_width=True)
 
 #Create a sidebar header
 st.sidebar.header('Enter the stock code and type of indicator you want to see')
