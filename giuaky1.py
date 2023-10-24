@@ -47,7 +47,7 @@ st.header("**Your Technical Analysis Web Application***")
 st.write("""
 **Visually** show technical indicator on any stock on the market
 """)
-image_url = 'https://github.com/tienguyene/GPM1/raw/main/image.jpg'
+image_url = 'https://github.com/tienguyene/GPM1/main/image.jpg'
 response = requests.get(image_url)
 image_bytes = np.asarray(bytearray(response.content), dtype=np.uint8)
 image = cv2.imdecode(image_bytes, cv2.IMREAD_COLOR)
