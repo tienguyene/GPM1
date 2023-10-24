@@ -2,7 +2,7 @@ import pandas as pd
 #Import the libraris
 import streamlit as st
 import pandas as pd
-import plotly.graph_objects as go
+import plotly.graph_objs as go
 from PIL import Image
 
 # Thay đổi tên tệp Excel và trang tính tương ứng
