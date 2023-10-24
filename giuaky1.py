@@ -6,7 +6,7 @@ import plotly.graph_objs as go
 from PIL import Image
 
 # Thay đổi tên tệp Excel và trang tính tương ứng
-url = 'c:/Users/PC/Downloads/GPM1/data-Fintech2023.xlsx'
+url = 'https://github.com/tienguyene/GPM1/raw/main/data-Fintech2023.xlsx'
 sheet = 'Price'
 
 @st.cache_data
