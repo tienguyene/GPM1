@@ -44,7 +44,7 @@ st.header("**Your Technical Analysis Web Application***")
 st.write("""
 **Visually** show technical indicator on any stock on the market
 """)
-image = Image.open("https://github.com/tienguyene/GPM1/main/image.jpg'")
+image = Image.open("https://github.com/tienguyene/GPM1/raw/main/image.jpg")
 st.image(image, use_column_width=True)
 
 #Create a sidebar header
