@@ -4,6 +4,8 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objs as go
 from PIL import Image
+import requests
+from io import BytesIO
 
 # Thay đổi tên tệp Excel và trang tính tương ứng
 url = 'https://github.com/tienguyene/GPM1/raw/main/data-Fintech2023.xlsx'
@@ -44,8 +46,10 @@ st.header("**Your Technical Analysis Web Application***")
 st.write("""
 **Visually** show technical indicator on any stock on the market
 """)
-image = Image.open("https://github.com/tienguyene/GPM1/raw/main/image.jpg")
-st.image(image, use_column_width=True)
+image_url = 'https://github.com/tienguyene/GPM1/raw/main/image.jpg'
+response = requests.get(image_url)
+image = Image.open(BytesIO(response.content))
+st.image(image, caption='Tệp ảnh từ GitHub', use_column_width=True)
 
 #Create a sidebar header
 st.sidebar.header('Enter the stock code and type of indicator you want to see')
