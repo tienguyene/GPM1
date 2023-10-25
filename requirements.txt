@@ -4,3 +4,4 @@ openpyxl>=3.0.10
 xlrd==2.0.1
 opencv-python-headless==4.5.3.56
 # technical-analysis-library-in-python
+ta==0.10.2
