@@ -55,7 +55,7 @@ st.sidebar.header('Enter the stock code and type of indicator you want to see')
 
 #Create a function to get the users input
 def get_input():
-   stock_symbol = st.sidebar.text_input("Enter the stock code:", "Enter in here")
+   stock_symbol = st.sidebar.text_input("Enter the stock code:", "")
    chart = st.sidebar.radio("Select an indicators", ["Moving Average", "Bollinger Bands", "RSI","MACD","Stochastic Oscillator"])
    return stock_symbol, chart
 
