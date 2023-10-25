@@ -200,5 +200,7 @@ if stock_symbol.upper() in keys:
       st.header(stock_symbol.upper()+" Stochastic Oscillator\n")
       st.plotly_chart(fig)
  else :
-        st.write('Sorry! We do not have the chart you want to find in our database')
-else: st.write('Sorry! We do not have the stock you want to find in our database')
+#         st.write('Sorry! We do not have the chart you want to find in our database')
+# else: st.write('Sorry! We do not have the stock you want to find in our database')
+st.mardown("""<span style='color:red;'>Sorry! We do not have the chart you want to find in our database</span> """, unsafe_allow_html=True)
+else: st.mardown("""<span style='color:red;'>Sorry! We do not have the stock you want to find in our database</span> """, unsafe_allow_html=True)
