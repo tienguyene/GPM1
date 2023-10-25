@@ -48,7 +48,7 @@ image_path = 'hinhanh.jpg'
 # Sử dụng thư viện Pillow (PIL) để mở tệp ảnh
 image = Image.open(image_path)
 # Hiển thị ảnh
-st.image(image, caption='Tệp ảnh .jpg', use_column_width=True)
+st.image(image, use_column_width=True)
 
 #Create a sidebar header
 st.sidebar.header('Enter the stock code and type of indicator you want to see')
@@ -56,8 +56,7 @@ st.sidebar.header('Enter the stock code and type of indicator you want to see')
 #Create a function to get the users input
 def get_input():
    stock_symbol = st.sidebar.text_input("Enter the stock code:", "VCB")
-   chart = st.sidebar.text_input("""Enter a number for the indicator:\n1: Moving\n2: Bollinger Bands\n3: RSI\n4: MACD\n5: Stochastic Oscillator""","1")
-   
+   chart = st.sidebar.radio("Select an indicaotr", ["Moving Average", "Bollinger Bands", "RSI","MACD","Stochastic Oscillator"])
    return stock_symbol, chart
 
 stock_symbol, chart = get_input()
@@ -68,7 +67,7 @@ if stock_symbol.upper() in keys:
  df= df_dict[stock_symbol.upper()]
 
  df.rename(columns={stock_symbol.upper(): 'close'}, inplace=True)
- if chart.upper() =="1":
+ if chart =="Moving Average":
       df['50_SMA'] = df['close'].rolling(window=50).mean()
       df['100_SMA'] = df['close'].rolling(window=100).mean()
       df['200_SMA'] = df['close'].rolling(window=200).mean()
@@ -80,7 +79,7 @@ if stock_symbol.upper() in keys:
       plain.add_trace(go.Scatter(x=df.index, y=df['200_SMA'], name='200 MA', line=dict(color='purple', width=0.5)))
       st.header(stock_symbol.upper()+" Moving Average\n")
       st.plotly_chart(plain)
- elif chart.upper() == "2" :
+ elif chart == "Bollinger Bands" :
       from ta.volatility import BollingerBands
        # Initialize Bollinger Bands Indicator
                 
@@ -106,7 +105,7 @@ if stock_symbol.upper() in keys:
       plain.add_trace(go.Scatter(x=df.index, y=df['bb_bbl'], name='Lower BB', line=dict(color='purple', width=0.5)))
       st.header(stock_symbol.upper()+" Bollinger Band\n")
       st.plotly_chart(plain)
- elif chart.upper() == "3" :
+ elif chart == "RSI" :
       import ta
       from plotly.subplots import make_subplots
 
@@ -138,7 +137,7 @@ if stock_symbol.upper() in keys:
       st.plotly_chart(fig)
 
                
- elif chart.upper() == "4" :
+ elif chart == "MACD" :
       import pandas as pd
       import matplotlib.pyplot as plt
       import ta
@@ -178,7 +177,7 @@ if stock_symbol.upper() in keys:
                 # Hiển thị biểu đồ
       st.header(stock_symbol.upper()+" MACD\n")
       st.plotly_chart(fig)
- elif chart.upper() == "5" :
+ elif chart == "Stochastic Oscillator" :
             
                 # Tính toán Stochastic Oscillator
       def calculate_stochastic(df, n, k):
